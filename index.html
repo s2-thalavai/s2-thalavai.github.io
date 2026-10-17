@@ -81,7 +81,7 @@ h2{font-size:clamp(28px,4vw,38px);letter-spacing:-.02em;margin:0;line-height:1.1
 h3{font-size:21px;margin:0;line-height:1.3}
 
 /* skills */
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,176px),1fr));gap:16px}
 .card{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:24px}
 .card h3{font-size:15px;font-family:var(--mono);font-weight:500;color:var(--accent);margin-bottom:14px;letter-spacing:.02em}
 .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
@@ -99,19 +99,21 @@ h3{font-size:21px;margin:0;line-height:1.3}
 .job p{color:var(--muted);margin:8px 0 0;max-width:720px}
 
 /* projects */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.project h3{font-family:var(--sans);font-size:20px;font-weight:700;color:var(--text);margin:0;letter-spacing:-.01em}
 .project{display:flex;flex-direction:column;gap:14px}
 .project .domain{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
 .project ul.points{margin:0;padding-left:18px;color:var(--muted);font-size:15.5px}
 .project ul.points li{margin-bottom:6px}
 .project .tags{margin-top:auto;padding-top:6px}
 .project .tags li{font-size:12px;padding:3px 8px}
-.feature{border-color:var(--line-2);background:linear-gradient(var(--bg-2),var(--bg-2)) padding-box}
-.feature .link{font-family:var(--mono);font-size:14px;display:inline-flex;align-items:center;gap:8px;min-height:44px}
 
 .sub{font-family:var(--mono);font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);margin:0 0 18px}
 .sub:not(:first-of-type){margin-top:48px}
-.repos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.repos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.repo.feature{grid-column:span 2}
+.repo h3{margin:0}
+.two{align-items:stretch}
 .repo{display:flex;flex-direction:column;gap:10px}
 .repo h3{font-family:var(--mono);font-size:17px;font-weight:500}
 .repo p{margin:0;color:var(--muted);font-size:15.5px}
@@ -140,6 +142,9 @@ h3{font-size:21px;margin:0;line-height:1.3}
 footer{border-top:1px solid var(--line);padding:28px 0;font-family:var(--mono);font-size:13px;color:var(--dim)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
+@media (max-width:1000px){
+  .repos{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:640px){
   body{font-size:16px}
   .wrap{padding:0 16px}
@@ -166,6 +171,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   section{padding:48px 0}
   .sec-head{margin-bottom:24px}
   .card{padding:20px}
+  .repos,.projects{grid-template-columns:minmax(0,1fr)}
+  .repo.feature{grid-column:auto}
   .job{padding-left:32px;padding-bottom:32px}
   .contact{padding:64px 0}
   .contact .cta{flex-direction:column}
@@ -398,7 +405,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="sec-head"><span class="num">04</span><h2>Credentials</h2></div>
       <div class="two">
         <div class="card">
-          <h3 style="margin-bottom:18px">Certifications</h3>
+          <h3>Certifications</h3>
           <ul class="list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg><div><a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/">Azure Solutions Architect Expert</a><small>Microsoft Certified</small></div></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg><div><a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/">Azure Administrator Associate</a><small>Microsoft Certified</small></div></li>
@@ -407,7 +414,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           </ul>
         </div>
         <div class="card">
-          <h3 style="margin-bottom:18px">Education</h3>
+          <h3>Education</h3>
           <ul class="list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg><div>M.Sc. Computer Science<small>Manonmaniam Sundaranar University · 2014–2016</small></div></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg><div>B.Sc. Computer Science<small>Manonmaniam Sundaranar University · 2008–2011</small></div></li>
